@@ -1,0 +1,25 @@
+.wrapper {
+    display: flex;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    justify-content: center;
+}
+.greetings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    & p {
+        width: 500px;
+    }
+    & a {
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+        transition: all 0.5s ease;
+        &:hover {
+            color: #f04037;
+        }
+    }
+   
+}

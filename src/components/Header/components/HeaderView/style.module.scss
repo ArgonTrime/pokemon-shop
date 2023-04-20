@@ -1,0 +1,27 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:  #f04037;
+    padding: 20px;
+}
+.link {
+    text-decoration: none;
+    color: #FFF;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+    transition: all 0.5s ease;
+    &:hover {
+        background-color: #FFF;
+        color: #f04037;
+    }
+    &:not(:last-child) {
+        margin-right: 20px;
+    }
+}
+.controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
