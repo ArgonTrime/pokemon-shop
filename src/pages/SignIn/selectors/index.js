@@ -10,3 +10,8 @@ export const errorAuthSelector = createSelector(
   baseSelector,
   (auth) => auth.error
 );
+
+export const accountDataSelector = createSelector(
+  baseSelector,
+  (auth) => auth.accountData
+);
