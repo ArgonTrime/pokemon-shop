@@ -7,7 +7,9 @@ const config = {
 };
 
 export const pokemonApiConfig = axios.create(config);
-// pokemonApiConfig.interceptors.request.use((config) => {
-//   const accessToken = LocalStorageService.getToken();
-//   config.headers.Authorization = `Bearer ${accessToken}`;
-// });
+pokemonApiConfig.interceptors.request.use((config) => {
+  const accessToken = LocalStorageService.getToken();
+  config.headers.Authorization = `Bearer ${accessToken}`;
+
+  return config;
+});

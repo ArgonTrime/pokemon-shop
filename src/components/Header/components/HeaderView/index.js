@@ -10,6 +10,7 @@ import LogOutButton from "../LogOutButton";
 import Logo from "../Logo";
 import ShoppingCartButton from "../ShoppingCartButton";
 import UserButton from "../UserButton";
+import { logOut } from "utils";
 
 import styles from "./style.module.scss";
 
@@ -30,7 +31,7 @@ const HeaderView = ({ isAuthenticated }) => {
           <>
             <UserButton />
             <ShoppingCartButton count={2} />
-            <LogOutButton />
+            <LogOutButton handleClick={logOut} />
           </>
         )}
       </div>

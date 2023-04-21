@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 
 const SignUpForm = ({ formik, data, errorsResponce }) => {
   const { errors, values, handleChange, handleSubmit } = formik;
-  // const { message, success } = data.data;
 
   return (
     <form className={styles.wrapper} onSubmit={handleSubmit}>
@@ -44,24 +43,6 @@ const SignUpForm = ({ formik, data, errorsResponce }) => {
           </p>
         </>
       )}
-
-      {/* {Object.entries(values).map(([name, value]) => (
-        <ControlledInput
-          name={name}
-          value={value}
-          variant="outlined"
-          onChange={handleChange}
-          label={name}
-          key={name}
-          error={Boolean(errors[name])}
-          helperText={errors[name]}
-          type={name === "password" || name === "email" ? name : "text"}
-          size="small"
-        />
-      ))}
-      <Button type="submit" variant="contained">
-        Submit
-      </Button> */}
     </form>
   );
 };
