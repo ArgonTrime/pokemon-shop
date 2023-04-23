@@ -48,7 +48,7 @@ const SignInForm = ({
 };
 SignInForm.propTypes = {
   form: PropTypes.objectOf(PropTypes.string).isRequired,
-  error: PropTypes.any.isRequired,
+  error: PropTypes.any,
   handleChange: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   handleRemoveError: PropTypes.func.isRequired,

@@ -3,6 +3,6 @@ export const ROUTE_NAMES = {
   SIGN_IN: "/sign-in",
   SIGN_UP: "/sign-up",
   POKEMONS: "/pokemons",
-  POKEMON_DETAILS: "/pokemons/:pokemonName",
+  POKEMON_DETAILS: "/pokemons/:id",
   PROFILE: "/profile",
 };

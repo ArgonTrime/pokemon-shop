@@ -2,6 +2,8 @@ import { capitalize } from "lodash";
 import Button from "@mui/material/Button";
 
 import styles from "./style.module.scss";
+import { Link } from "react-router-dom";
+import { ROUTE_NAMES } from "routes/routeNames";
 
 const PokemonsCards = ({ pokemons }) => {
   return (
@@ -13,9 +15,14 @@ const PokemonsCards = ({ pokemons }) => {
           <p>
             Price: <span className={styles.price}>${price}</span>
           </p>
-          <Button type="submit" variant="contained" color="success">
-            Buy
-          </Button>
+          <div className={styles.controls}>
+            <Button variant="contained" color="success">
+              Buy
+            </Button>
+            <Link to={`/pokemons/${id}`}>
+              <Button variant="contained">Details</Button>
+            </Link>
+          </div>
         </div>
       ))}
     </div>

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getPokemonsThunk } from "../api";
+import { getPokemonByIdThunk, getPokemonsThunk } from "../api";
 
 const initialState = {
   pokemons: {
@@ -29,6 +29,18 @@ const pokemonsPageSlice = createSlice({
     builder.addCase(getPokemonsThunk.rejected, (state, { payload }) => {
       state.pokemons.isLoading = false;
       state.pokemons.error = payload;
+    });
+
+    builder.addCase(getPokemonByIdThunk.pending, (state) => {
+      state.pokemonById.isLoading = true;
+    });
+    builder.addCase(getPokemonByIdThunk.fulfilled, (state, { payload }) => {
+      state.pokemonById.isLoading = false;
+      state.pokemonById.data = payload;
+    });
+    builder.addCase(getPokemonByIdThunk.rejected, (state, { payload }) => {
+      state.pokemonById.isLoading = false;
+      state.pokemonById.error = payload;
     });
   },
 });

@@ -7,6 +7,7 @@ import SignInContainer from "pages/SignIn/containers/SignInContainer";
 import PrivateRoute from "./PrivateRoute";
 import PokemonsContainer from "pages/Pokemons/containers/PokemonsContainer";
 import ProfileContainer from "pages/Profile/containers/ProfileContainer";
+import PokemonDetailsContainer from "pages/PokemonDetails/containers/PokemonDetailsContainer";
 
 const Router = () => {
   return (
@@ -26,7 +27,7 @@ const Router = () => {
         path={ROUTE_NAMES.POKEMON_DETAILS}
         element={
           <PrivateRoute>
-            <h2>Pokemon details page</h2>
+            <PokemonDetailsContainer />
           </PrivateRoute>
         }
       />
