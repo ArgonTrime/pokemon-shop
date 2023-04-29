@@ -1,14 +1,28 @@
 .wrapper {
     display: flex;
     flex-direction: column;
-    gap: 20px;
     padding: 20px;
     align-items: center;
+    background-color: #f0ebeb;
 
-    & div {
+    & .wrapperContant {
         max-width: 1200px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        & h2 {
+            width: 100%;
+        }
+        & ul > li > button {
+            background-color: #FFF;
+            font-family: 'Roboto Slab', serif;
+            font-weight: 700;
+        }
     }
 }
 .breadcrambs {
     font-size: 14px;
+    width: 100%;
+
 }
