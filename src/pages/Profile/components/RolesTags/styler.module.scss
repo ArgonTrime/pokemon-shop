@@ -1,0 +1,12 @@
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    & .role {
+        background-color: #f04037;
+        color: #FFF;
+        font-size: small;
+        font-weight: 600;
+        border-radius: 5px;
+        padding: 3px;
+    }
+}
