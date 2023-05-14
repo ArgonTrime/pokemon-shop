@@ -14,7 +14,7 @@ import { logOut } from "utils";
 
 import styles from "./style.module.scss";
 
-const HeaderView = ({ isAuthenticated }) => {
+const HeaderView = ({ isAuthenticated, cartItemsQuantity }) => {
   const navsItemsAccessKey = isAuthenticated ? privateNavsKeys : publicNavsKeys;
   return (
     <header className={styles.wrapper}>
@@ -30,7 +30,7 @@ const HeaderView = ({ isAuthenticated }) => {
         {isAuthenticated && (
           <>
             <UserButton />
-            <ShoppingCartButton count={2} />
+            <ShoppingCartButton count={cartItemsQuantity} />
             <LogOutButton handleClick={logOut} />
           </>
         )}

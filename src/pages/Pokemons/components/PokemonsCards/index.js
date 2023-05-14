@@ -1,11 +1,11 @@
 import { capitalize } from "lodash";
 import Button from "@mui/material/Button";
 
-import styles from "./style.module.scss";
 import { Link } from "react-router-dom";
-import { ROUTE_NAMES } from "routes/routeNames";
 
-const PokemonsCards = ({ pokemons }) => {
+import styles from "./style.module.scss";
+
+const PokemonsCards = ({ pokemons, handleAddItemToCart }) => {
   return (
     <div className={styles.wrapper}>
       {pokemons.map(({ id, name, image, price }) => (
@@ -16,7 +16,13 @@ const PokemonsCards = ({ pokemons }) => {
             Price: <span className={styles.price}>${price}</span>
           </p>
           <div className={styles.controls}>
-            <Button variant="contained" color="success">
+            <Button
+              variant="contained"
+              color="success"
+              onClick={() =>
+                handleAddItemToCart({ id, name, image, price, quantity: 1 })
+              }
+            >
               Buy
             </Button>
             <Link to={`/pokemons/${id}`}>
