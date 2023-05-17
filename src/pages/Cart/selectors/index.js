@@ -10,6 +10,10 @@ export const cartItemsSelector = createSelector(
   baseSelector,
   (cart) => cart.items
 );
+export const cartEmptySelector = createSelector(
+  cartItemsSelector,
+  (items) => items.length === 0
+);
 export const cartItemsQuantitySelector = createSelector(
   baseSelector,
   (cart) => cart.quantity

@@ -9,8 +9,10 @@ const CartContainer = () => {
     totalPrice,
     cartItemsQuantity,
     cartItemsTotalQuantity,
+    isEmptyCart,
     changeItemQuantity,
     deleteItemById,
+    deleteAllItems,
     getCartData,
   } = useCart();
 
@@ -24,8 +26,10 @@ const CartContainer = () => {
       totalPrice={totalPrice}
       cartItemsQuantity={cartItemsQuantity}
       cartItemsTotalQuantity={cartItemsTotalQuantity}
+      isEmptyCart={isEmptyCart}
       handleChangeQuantity={changeItemQuantity}
       handleDeleteItem={deleteItemById}
+      handleDeleteAllItems={deleteAllItems}
     />
   );
 };

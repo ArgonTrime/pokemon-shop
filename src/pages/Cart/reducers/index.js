@@ -4,6 +4,7 @@ import { getItemsThunk } from "../api/thunks/getItems";
 import { addItemThunk } from "../api/thunks/addItem";
 import { deleteItemThunk } from "../api/thunks/deleteItem";
 import { changeItemQuantityThunk } from "../api/thunks/changeItemQuantity";
+import { deleteAllItemsThunk } from "../api/thunks/deleteAllItems";
 
 const initialState = {
   items: [],
@@ -89,6 +90,19 @@ const cartSlice = createSlice({
       state.items.splice(deletedItemId, 1);
     });
     builder.addCase(deleteItemThunk.rejected, (state, { payload }) => {
+      state.isLoading = false;
+      state.errors = payload;
+    });
+
+    builder.addCase(deleteAllItemsThunk.pending, (state) => {
+      state.isLoading = true;
+      state.errors = null;
+    });
+    builder.addCase(deleteAllItemsThunk.fulfilled, (state) => {
+      state.isLoading = false;
+      state.errors = null;
+    });
+    builder.addCase(deleteAllItemsThunk.rejected, (state, { payload }) => {
       state.isLoading = false;
       state.errors = payload;
     });

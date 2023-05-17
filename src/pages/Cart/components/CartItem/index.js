@@ -27,7 +27,7 @@ const CartItem = ({
         handleChangeQuantity={handleChangeQuantity}
       />
       <span>{`$${price * quantity}`}</span>
-      <TrashBin handleDeleteItem={handleDeleteItem} id={id} />
+      <TrashBin handleDeleteItem={handleDeleteItem} payloadForHandle={id} />
     </div>
   );
 };
