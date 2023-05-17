@@ -20,6 +20,10 @@ export const NAVIGATION_ITEMS = {
       title: "Pokémons",
       path: ROUTE_NAMES.POKEMONS,
     },
+    {
+      title: "Cart",
+      path: ROUTE_NAMES.CART,
+    },
   ],
 };
 export const publicNavsKeys = "public";

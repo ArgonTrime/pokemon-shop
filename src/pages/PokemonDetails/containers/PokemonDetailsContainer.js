@@ -6,6 +6,7 @@ import { getPokemonByIdThunk } from "pages/Pokemons/api";
 import PokemonDetailsView from "../components/PokemonDetailsView";
 import { pokemonSelectors } from "pages/Pokemons/selectors";
 import { statNormolize } from "../utils/statNormolize";
+import { useCart } from "hooks";
 
 const PokemonDetailsContainer = () => {
   const dispatch = useDispatch();
@@ -15,10 +16,18 @@ const PokemonDetailsContainer = () => {
   const error = useSelector(pokemonSelectors.error);
   const isLoading = useSelector(pokemonSelectors.isLoading);
 
+  const { addItemToCart } = useCart();
+
   useEffect(() => {
     dispatch(getPokemonByIdThunk(id));
   }, [dispatch, id]);
 
-  return <PokemonDetailsView pokemonDetails={pokemonDetails} stats={stats} />;
+  return (
+    <PokemonDetailsView
+      pokemonDetails={pokemonDetails}
+      stats={stats}
+      handleAddItemToCart={addItemToCart}
+    />
+  );
 };
 export default PokemonDetailsContainer;

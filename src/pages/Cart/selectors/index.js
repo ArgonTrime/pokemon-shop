@@ -14,6 +14,10 @@ export const cartItemsQuantitySelector = createSelector(
   baseSelector,
   (cart) => cart.quantity
 );
+export const cartItemsTotalQuantitySelector = createSelector(
+  cartItemsSelector,
+  (items) => items.reduce((result, { quantity }) => result + quantity, 0)
+);
 export const cartIsLoadingSelector = createSelector(
   baseSelector,
   (cart) => cart.isLoading

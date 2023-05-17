@@ -1,6 +1,7 @@
 import { IconButton, Tooltip, Badge } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Link } from "react-router-dom";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -14,16 +15,18 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 const ShoppingCartButton = ({ count, handleClick }) => {
   return (
     <Tooltip title="Shopping Cart">
-      <IconButton
-        aria-label="cart"
-        size="Large"
-        onClick={handleClick}
-        sx={{ color: "#FFF" }}
-      >
-        <StyledBadge badgeContent={count} color="success">
-          <ShoppingCartIcon />
-        </StyledBadge>
-      </IconButton>
+      <Link to="/cart">
+        <IconButton
+          aria-label="cart"
+          size="Large"
+          onClick={handleClick}
+          sx={{ color: "#FFF" }}
+        >
+          <StyledBadge badgeContent={count} color="success">
+            <ShoppingCartIcon />
+          </StyledBadge>
+        </IconButton>
+      </Link>
     </Tooltip>
   );
 };

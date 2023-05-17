@@ -7,8 +7,8 @@ import statsIconsByName from "pages/PokemonDetails/utils/statsIconsByName";
 
 import styles from "./style.module.scss";
 
-const PokemonDetailsView = ({ pokemonDetails, stats }) => {
-  const { name, image, abilities, price } = pokemonDetails;
+const PokemonDetailsView = ({ pokemonDetails, stats, handleAddItemToCart }) => {
+  const { id, name, image, abilities, price } = pokemonDetails;
   return (
     <div className={styles.wrapper}>
       <div className={styles.detailsCard}>
@@ -37,7 +37,13 @@ const PokemonDetailsView = ({ pokemonDetails, stats }) => {
               <p>
                 Price: <span>${price}</span>
               </p>
-              <Button variant="contained" color="success">
+              <Button
+                variant="contained"
+                color="success"
+                onClick={() =>
+                  handleAddItemToCart({ id, name, image, price, quantity: 1 })
+                }
+              >
                 Buy
               </Button>
             </div>

@@ -22,6 +22,7 @@ const PokemonsView = ({
 
         <CustomPagination
           startPage={pageNumber}
+          page={pageNumber}
           countPage={20}
           handleChange={handleChangePage}
         />
