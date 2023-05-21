@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 import Button from "@mui/material/Button";
 import Alert from "@mui/material/Alert";
+import { isNull } from "lodash";
 
 import ControlledInput from "components/ControlledInput";
 
 import styles from "./style.module.scss";
-import { isNull } from "lodash";
 
 const SignInForm = ({
   form,

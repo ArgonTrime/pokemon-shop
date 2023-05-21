@@ -40,5 +40,6 @@ const HeaderView = ({ isAuthenticated, cartItemsQuantity }) => {
 };
 HeaderView.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
+  cartItemsQuantity: PropTypes.number,
 };
 export default HeaderView;

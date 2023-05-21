@@ -1,7 +1,9 @@
 import FaceIcon from "@mui/icons-material/Face";
 import Face2Icon from "@mui/icons-material/Face2";
-import RolesTags from "../RolesTags";
 import { capitalize } from "lodash";
+import PropTypes from "prop-types";
+
+import RolesTags from "../RolesTags";
 
 import styles from "./style.module.scss";
 
@@ -23,5 +25,16 @@ const ProfileView = ({ profileData }) => {
       </div>
     </div>
   );
+};
+ProfileView.propTypes = {
+  profileData: PropTypes.shape({
+    address: PropTypes.objectOf(PropTypes.string),
+    email: PropTypes.string,
+    firstName: PropTypes.string,
+    gender: PropTypes.string,
+    lastName: PropTypes.string,
+    phone: PropTypes.string,
+    roles: PropTypes.arrayOf(PropTypes.string),
+  }),
 };
 export default ProfileView;

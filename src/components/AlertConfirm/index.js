@@ -4,6 +4,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import PropTypes from "prop-types";
 
 const AlertConfirm = ({
   text,
@@ -52,5 +53,12 @@ const AlertConfirm = ({
       </DialogActions>
     </Dialog>
   );
+};
+AlertConfirm.propTypes = {
+  text: PropTypes.objectOf(PropTypes.string).isRequired,
+  fontFamily: PropTypes.string,
+  openAlert: PropTypes.bool.isRequired,
+  handleClose: PropTypes.func.isRequired,
+  handleSomething: PropTypes.func,
 };
 export default AlertConfirm;

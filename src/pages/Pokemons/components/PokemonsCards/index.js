@@ -1,5 +1,6 @@
-import { capitalize } from "lodash";
 import Button from "@mui/material/Button";
+import { capitalize } from "lodash";
+import PropTypes from "prop-types";
 
 import { Link } from "react-router-dom";
 
@@ -33,5 +34,16 @@ const PokemonsCards = ({ pokemons, handleAddItemToCart }) => {
       ))}
     </div>
   );
+};
+PokemonsCards.propTypes = {
+  pokemons: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      image: PropTypes.string,
+      price: PropTypes.number,
+    })
+  ),
+  handleAddItemToCart: PropTypes.func.isRequired,
 };
 export default PokemonsCards;

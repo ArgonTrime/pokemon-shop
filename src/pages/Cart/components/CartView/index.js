@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import CartItem from "../CartItem";
 import TrashBin from "../TrashBin";
@@ -60,5 +61,24 @@ const CartView = ({
       </div>
     </div>
   );
+};
+CartView.propTypes = {
+  cartItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      image: PropTypes.string,
+      quantity: PropTypes.number,
+      price: PropTypes.number,
+      _id: PropTypes.string,
+    })
+  ),
+  totalPrice: PropTypes.number.isRequired,
+  cartItemsQuantity: PropTypes.number.isRequired,
+  cartItemsTotalQuantity: PropTypes.number.isRequired,
+  isEmptyCart: PropTypes.bool.isRequired,
+  handleChangeQuantity: PropTypes.func.isRequired,
+  handleDeleteItem: PropTypes.func.isRequired,
+  handleDeleteAllItems: PropTypes.func.isRequired,
 };
 export default CartView;

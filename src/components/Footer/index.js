@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { Link } from "react-router-dom";
 import { memo } from "react";
 
 import styles from "./style.module.scss";

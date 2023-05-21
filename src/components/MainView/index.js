@@ -1,6 +1,8 @@
 import HeaderContainer from "components/Header/container/HeaderContainer";
 import Footer from "components/Footer";
 
+import PropTypes from "prop-types";
+
 import styles from "./style.module.scss";
 
 const MainView = ({ children }) => {
@@ -11,5 +13,11 @@ const MainView = ({ children }) => {
       <Footer />
     </>
   );
+};
+MainView.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
 };
 export default MainView;

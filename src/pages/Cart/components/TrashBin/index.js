@@ -1,6 +1,7 @@
 import Tooltip from "@mui/material/Tooltip";
 import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
+import PropTypes from "prop-types";
 
 import { useAlert } from "hooks";
 import AlertConfirm from "components/AlertConfirm";
@@ -27,5 +28,12 @@ const TrashBin = ({ handleDeleteItem, payloadForHandle }) => {
       />
     </>
   );
+};
+TrashBin.propTypes = {
+  handleDeleteItem: PropTypes.func,
+  // payloadForHandle: PropTypes.oneOf([
+  //   PropTypes.number,
+  //   PropTypes.arrayOf(PropTypes.instanceOf(Promise)),
+  // ]),
 };
 export default TrashBin;

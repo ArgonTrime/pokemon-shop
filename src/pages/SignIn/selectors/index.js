@@ -15,3 +15,8 @@ export const accountDataSelector = createSelector(
   baseSelector,
   (auth) => auth.accountData
 );
+
+export const pageNumberForPaginationSelector = createSelector(
+  baseSelector,
+  (auth) => auth.pageNumberForPagination
+);

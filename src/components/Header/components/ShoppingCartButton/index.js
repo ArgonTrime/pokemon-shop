@@ -2,6 +2,7 @@ import { IconButton, Tooltip, Badge } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -29,5 +30,9 @@ const ShoppingCartButton = ({ count, handleClick }) => {
       </Link>
     </Tooltip>
   );
+};
+ShoppingCartButton.propTypes = {
+  count: PropTypes.number.isRequired,
+  handleClick: PropTypes.func,
 };
 export default ShoppingCartButton;

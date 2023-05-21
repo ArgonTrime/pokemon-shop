@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import CustomPagination from "components/Pagination";
 import PokemonsCards from "../PokemonsCards";
 
@@ -29,5 +31,19 @@ const PokemonsView = ({
       </div>
     </div>
   );
+};
+PokemonsView.propTypes = {
+  pokemons: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      image: PropTypes.string,
+      price: PropTypes.number,
+    })
+  ),
+  isLoadingPokemons: PropTypes.bool,
+  pageNumber: PropTypes.number.isRequired,
+  handleChangePage: PropTypes.func.isRequired,
+  handleAddItemToCart: PropTypes.func.isRequired,
 };
 export default PokemonsView;

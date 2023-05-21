@@ -1,5 +1,6 @@
-import { capitalize, lowerCase } from "lodash";
 import Button from "@mui/material/Button";
+import { capitalize, lowerCase } from "lodash";
+import PropTypes from "prop-types";
 
 import PokemonAbilities from "../PokemonAbilities";
 import PokemonStat from "../PokemonStat";
@@ -52,5 +53,18 @@ const PokemonDetailsView = ({ pokemonDetails, stats, handleAddItemToCart }) => {
       </div>
     </div>
   );
+};
+PokemonDetailsView.propTypes = {
+  pokemonDetails: PropTypes.shape({
+    abilities: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
+    id: PropTypes.number,
+    image: PropTypes.string,
+    name: PropTypes.string,
+    price: PropTypes.number,
+  }),
+  stats: PropTypes.arrayOf(
+    PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
+  ),
+  handleAddItemToCart: PropTypes.func.isRequired,
 };
 export default PokemonDetailsView;

@@ -1,10 +1,11 @@
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import { omit } from "lodash";
 
 import { getPokemonByIdThunk } from "pages/Pokemons/api";
-import PokemonDetailsView from "../components/PokemonDetailsView";
 import { pokemonSelectors } from "pages/Pokemons/selectors";
+import PokemonDetailsView from "../components/PokemonDetailsView";
 import { statNormolize } from "../utils/statNormolize";
 import { useCart } from "hooks";
 
@@ -24,7 +25,7 @@ const PokemonDetailsContainer = () => {
 
   return (
     <PokemonDetailsView
-      pokemonDetails={pokemonDetails}
+      pokemonDetails={omit(pokemonDetails, ["stats"])}
       stats={stats}
       handleAddItemToCart={addItemToCart}
     />

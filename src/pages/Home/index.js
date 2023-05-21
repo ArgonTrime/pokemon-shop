@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
-import pokemons from "static/images/pokemons.png";
-
-import styles from "./style.module.scss";
 import { ROUTE_NAMES } from "routes/routeNames";
+
+import pokemons from "static/images/pokemons.png";
+import styles from "./style.module.scss";
 
 const Home = () => {
   return (

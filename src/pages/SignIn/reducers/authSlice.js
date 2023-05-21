@@ -5,6 +5,7 @@ const initialState = {
   isLoading: false,
   error: null,
   accountData: {},
+  pageNumberForPagination: 1,
   isAuthenticated: false,
 };
 
@@ -14,6 +15,9 @@ const authSlice = createSlice({
   reducers: {
     closeError: (state) => {
       state.error = null;
+    },
+    savePageNumberForPagination: (state, { payload }) => {
+      state.pageNumberForPagination = payload;
     },
   },
   extraReducers: (builder) => {
@@ -32,5 +36,5 @@ const authSlice = createSlice({
     });
   },
 });
-export const { closeError } = authSlice.actions;
+export const { closeError, savePageNumberForPagination } = authSlice.actions;
 export default authSlice.reducer;
