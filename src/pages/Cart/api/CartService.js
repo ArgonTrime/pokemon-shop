@@ -20,5 +20,8 @@ class CartService {
   deleteItem(id) {
     return pokemonApi.delete(`${this.#urlParamForCart}/item/${id}`);
   }
+  order({ customerId, totalPrice, itemsList }) {
+    return pokemonApi.post("/order", { customerId, totalPrice, itemsList });
+  }
 }
 export default CartService.instance;

@@ -15,6 +15,8 @@ import { addItemThunk } from "pages/Cart/api/thunks/addItem";
 import { changeItemQuantityThunk } from "pages/Cart/api/thunks/changeItemQuantity";
 import { deleteItemThunk } from "pages/Cart/api/thunks/deleteItem";
 import { deleteAllItemsThunk } from "pages/Cart/api/thunks/deleteAllItems";
+import { customerIdSelector } from "pages/SignIn/selectors";
+import { orderThunk } from "pages/Cart/api/thunks/order";
 
 const useCart = () => {
   const dispatch = useDispatch();
@@ -26,6 +28,7 @@ const useCart = () => {
   const isLoadingCartItems = useSelector(cartIsLoadingSelector);
   const errorsCart = useSelector(cartErrorsSelector);
   const isEmptyCart = useSelector(cartEmptySelector);
+  const customerId = useSelector(customerIdSelector);
 
   const getCartData = useCallback(() => {
     dispatch(getItemsThunk());
@@ -60,6 +63,10 @@ const useCart = () => {
     [dispatch]
   );
 
+  const orderPokemon = useCallback(() => {
+    dispatch(orderThunk({ customerId, totalPrice, itemsList: cartItems }));
+  }, [dispatch, customerId, totalPrice, cartItems]);
+
   return {
     cartItems,
     cartItemsQuantity,
@@ -73,6 +80,7 @@ const useCart = () => {
     changeItemQuantity,
     deleteItemById,
     deleteAllItems,
+    orderPokemon,
   };
 };
 export default useCart;

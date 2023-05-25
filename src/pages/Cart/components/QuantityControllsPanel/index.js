@@ -18,15 +18,14 @@ const QuantityConrollsPanel = ({ id, quantity, handleChangeQuantity }) => {
         </IconButton>
       </Tooltip>
       {quantity}
-      {isMoreOne && (
-        <Tooltip title="Remove">
-          <IconButton
-            onClick={() => handleChangeQuantity({ id, quantity: --quantity })}
-          >
-            <RemoveIcon color="warning" />
-          </IconButton>
-        </Tooltip>
-      )}
+      <Tooltip title="Remove">
+        <IconButton
+          onClick={() => handleChangeQuantity({ id, quantity: --quantity })}
+          disabled={!isMoreOne}
+        >
+          <RemoveIcon color={isMoreOne ? "warning" : "#ebe6e6"} />
+        </IconButton>
+      </Tooltip>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import Button from "@mui/material/Button";
 
 import CartItem from "../CartItem";
 import TrashBin from "../TrashBin";
@@ -16,6 +17,7 @@ const CartView = ({
   handleChangeQuantity,
   handleDeleteItem,
   handleDeleteAllItems,
+  handleOrderPokemon,
 }) => {
   return (
     <div className={styles.wrapper}>
@@ -23,11 +25,21 @@ const CartView = ({
         <div className={styles.headerContant}>
           <h2>Your cart</h2>
           {!isEmptyCart && (
-            <p>
-              Unique quantity: <span>{cartItemsQuantity}</span> All quantity:{" "}
-              <span>{cartItemsTotalQuantity}</span> Price:{" "}
-              <span>{`$${totalPrice}`}</span>
-            </p>
+            <div className={styles.orderInfo}>
+              <p>
+                Unique quantity: <span>{cartItemsQuantity}</span> All quantity:{" "}
+                <span>{cartItemsTotalQuantity}</span> Price:{" "}
+                <span>{`$${totalPrice}`}</span>
+              </p>
+              <Button
+                variant="contained"
+                color="success"
+                size="small"
+                onClick={handleOrderPokemon}
+              >
+                Buy
+              </Button>
+            </div>
           )}
         </div>
         {isEmptyCart ? (
@@ -80,5 +92,6 @@ CartView.propTypes = {
   handleChangeQuantity: PropTypes.func.isRequired,
   handleDeleteItem: PropTypes.func.isRequired,
   handleDeleteAllItems: PropTypes.func.isRequired,
+  handleOrderPokemon: PropTypes.func.isRequired,
 };
 export default CartView;

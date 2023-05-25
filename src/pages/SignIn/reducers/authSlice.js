@@ -21,19 +21,20 @@ const authSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(signInThunk.pending, (state) => {
-      state.isLoading = true;
-    });
-    builder.addCase(signInThunk.fulfilled, (state, { payload }) => {
-      state.isLoading = false;
-      state.isAuthenticated = true;
-      state.accountData = payload;
-      state.error = null;
-    });
-    builder.addCase(signInThunk.rejected, (state, { payload }) => {
-      state.isLoading = false;
-      state.error = payload;
-    });
+    builder
+      .addCase(signInThunk.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(signInThunk.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.isAuthenticated = true;
+        state.accountData = payload;
+        state.error = null;
+      })
+      .addCase(signInThunk.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = payload;
+      });
   },
 });
 export const { closeError, savePageNumberForPagination } = authSlice.actions;

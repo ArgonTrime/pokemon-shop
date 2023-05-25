@@ -32,6 +32,13 @@
     & span {
         font-weight: bold;
     }
+    & .orderInfo {
+        display: flex;
+        justify-content: space-between;
+        button {
+            font-family: 'Roboto Slab', serif;
+        }
+    }
 }
 .footerContent {
     display: flex;

@@ -14,6 +14,7 @@ const CartContainer = () => {
     deleteItemById,
     deleteAllItems,
     getCartData,
+    orderPokemon,
   } = useCart();
 
   useEffect(() => {
@@ -30,6 +31,7 @@ const CartContainer = () => {
       handleChangeQuantity={changeItemQuantity}
       handleDeleteItem={deleteItemById}
       handleDeleteAllItems={deleteAllItems}
+      handleOrderPokemon={orderPokemon}
     />
   );
 };
