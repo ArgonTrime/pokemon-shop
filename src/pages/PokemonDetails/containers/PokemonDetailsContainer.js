@@ -28,6 +28,7 @@ const PokemonDetailsContainer = () => {
       pokemonDetails={omit(pokemonDetails, ["stats"])}
       stats={stats}
       handleAddItemToCart={addItemToCart}
+      isLoading={isLoading}
     />
   );
 };

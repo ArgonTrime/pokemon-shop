@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 
 import CustomPagination from "components/Pagination";
 import PokemonsCards from "../PokemonsCards";
+import ProgressBar from "components/ProgressBar";
 
 import styles from "./style.module.scss";
 
@@ -16,11 +17,14 @@ const PokemonsView = ({
     <div className={styles.wrapper}>
       <div className={styles.wrapperContant}>
         <h2>Pokémons store</h2>
-        {isLoadingPokemons && <p>Loadinng...</p>}
-        <PokemonsCards
-          pokemons={pokemons}
-          handleAddItemToCart={handleAddItemToCart}
-        />
+        {isLoadingPokemons ? (
+          <ProgressBar />
+        ) : (
+          <PokemonsCards
+            pokemons={pokemons}
+            handleAddItemToCart={handleAddItemToCart}
+          />
+        )}
 
         <CustomPagination
           startPage={pageNumber}

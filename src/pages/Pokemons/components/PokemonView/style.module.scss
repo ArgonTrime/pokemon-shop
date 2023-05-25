@@ -1,19 +1,18 @@
 .wrapper {
     display: flex;
+    min-height: 780px;
     flex-direction: column;
-    // padding: 20px;
     align-items: center;
     background-color: #f0ebeb;
 
     & .wrapperContant {
         max-width: 1200px;
+        min-height: 800px;
         display: flex;
         flex-direction: column;
         gap: 20px;
         align-items: center;
-        & h2 {
-            width: 100%;
-        }
+        justify-content: space-between;
         & ul > li > button {
             background-color: #FFF;
             font-family: 'Roboto Slab', serif;
