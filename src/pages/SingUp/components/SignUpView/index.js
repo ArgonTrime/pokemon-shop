@@ -4,7 +4,7 @@ import SignUpForm from "../SignUpForm";
 
 import styles from "./style.module.scss";
 
-const SignUpView = ({ formik, data, errors }) => {
+const SignUpView = ({ formik, data, errors, handleRemoveError }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.greetings}>
@@ -13,7 +13,12 @@ const SignUpView = ({ formik, data, errors }) => {
           Welcome to the Pokémon Store, register to use all the functionality.
           Already have an account, try to <Link to="/sign-in">Log In.</Link>
         </p>
-        <SignUpForm formik={formik} data={data} errorsResponce={errors} />
+        <SignUpForm
+          formik={formik}
+          data={data}
+          errorsResponce={errors}
+          handleRemoveError={handleRemoveError}
+        />
       </div>
     </div>
   );

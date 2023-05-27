@@ -10,8 +10,12 @@ import { isAuthenticatedSelector } from "pages/SignIn/selectors";
 import { ROUTE_NAMES } from "routes/routeNames";
 
 const SignUpContainer = () => {
-  const { data, errors, handleDataLoad } = useFetching(signUp);
+  const { data, errors, setErrors, handleDataLoad } = useFetching(signUp);
   const isAuthenticated = useSelector(isAuthenticatedSelector);
+
+  const handleRemoveError = () => {
+    setErrors(null);
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -33,6 +37,13 @@ const SignUpContainer = () => {
     return <Navigate to={ROUTE_NAMES.HOME} />;
   }
 
-  return <SignUpView formik={formik} data={data} errors={errors} />;
+  return (
+    <SignUpView
+      formik={formik}
+      data={data}
+      errors={errors}
+      handleRemoveError={handleRemoveError}
+    />
+  );
 };
 export default SignUpContainer;

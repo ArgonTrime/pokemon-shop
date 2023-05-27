@@ -7,7 +7,7 @@ import { Alert } from "@mui/material";
 import { isNull } from "lodash";
 import { Link } from "react-router-dom";
 
-const SignUpForm = ({ formik, data, errorsResponce }) => {
+const SignUpForm = ({ formik, data, errorsResponce, handleRemoveError }) => {
   const { touched, errors, values, handleChange, handleSubmit } = formik;
 
   return (
@@ -34,7 +34,9 @@ const SignUpForm = ({ formik, data, errorsResponce }) => {
             Submit
           </Button>
           {errorsResponce?.message && (
-            <Alert severity="error">{errorsResponce.message}</Alert>
+            <Alert severity="error" onClose={handleRemoveError}>
+              {errorsResponce.message}
+            </Alert>
           )}
         </>
       ) : (
