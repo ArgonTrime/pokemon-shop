@@ -23,5 +23,8 @@ class CartService {
   order({ customerId, totalPrice, itemsList }) {
     return pokemonApi.post("/order", { customerId, totalPrice, itemsList });
   }
+  getOrders() {
+    return pokemonApi.get("/order");
+  }
 }
 export default CartService.instance;
