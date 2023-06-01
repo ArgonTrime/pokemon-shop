@@ -1,6 +1,7 @@
 import { useFormik } from "formik";
 import { Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { omit } from "lodash";
 
 import { useFetching } from "hooks";
 import { SingUpValidationForm } from "../validation";
@@ -22,13 +23,14 @@ const SignUpContainer = () => {
       firstName: "",
       lastName: "",
       email: "",
-      gender: "",
       password: "",
+      confirmPassword: "",
+      gender: "",
       phone: "",
     },
     validationSchema: SingUpValidationForm,
     onSubmit: (values, { resetForm }) => {
-      handleDataLoad(values);
+      handleDataLoad(omit(values, ["confirmPassword"]));
       resetForm();
     },
   });

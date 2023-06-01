@@ -6,6 +6,7 @@ import styles from "./style.module.scss";
 import { Alert } from "@mui/material";
 import { isNull } from "lodash";
 import { Link } from "react-router-dom";
+import { inputTypeByName } from "pages/SingUp/utils/inputTypeByName";
 
 const SignUpForm = ({ formik, data, errorsResponce, handleRemoveError }) => {
   const { touched, errors, values, handleChange, handleSubmit } = formik;
@@ -26,7 +27,7 @@ const SignUpForm = ({ formik, data, errorsResponce, handleRemoveError }) => {
                 errors[name] && touched[name] ? Boolean(errors[name]) : null
               }
               helperText={errors[name] && touched[name] ? errors[name] : null}
-              type={name === "password" || name === "email" ? name : "text"}
+              type={inputTypeByName(name)}
               size="small"
             />
           ))}
