@@ -1,3 +1,5 @@
+import Proptypes from "prop-types";
+
 import styles from "./style.module.scss";
 
 const PokemonStat = ({ srcImage, statName, statValue }) => {
@@ -9,5 +11,10 @@ const PokemonStat = ({ srcImage, statName, statValue }) => {
       </p>
     </div>
   );
+};
+PokemonStat.propTypes = {
+  srcImage: Proptypes.string,
+  statName: Proptypes.string,
+  statValue: Proptypes.number,
 };
 export default PokemonStat;

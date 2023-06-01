@@ -1,31 +1,34 @@
-import { capitalize } from "lodash";
-import Button from "@mui/material/Button";
+import PropTypes from "prop-types";
+
+import PokemonCard from "../PokemonCard";
 
 import styles from "./style.module.scss";
-import { Link } from "react-router-dom";
-import { ROUTE_NAMES } from "routes/routeNames";
 
-const PokemonsCards = ({ pokemons }) => {
+const PokemonsCards = ({ pokemons, handleAddItemToCart }) => {
   return (
     <div className={styles.wrapper}>
       {pokemons.map(({ id, name, image, price }) => (
-        <div key={id} className={styles.cardWrapper}>
-          <h3>{capitalize(name)}</h3>
-          <img src={image} alt={name} />
-          <p>
-            Price: <span className={styles.price}>${price}</span>
-          </p>
-          <div className={styles.controls}>
-            <Button variant="contained" color="success">
-              Buy
-            </Button>
-            <Link to={`/pokemons/${id}`}>
-              <Button variant="contained">Details</Button>
-            </Link>
-          </div>
-        </div>
+        <PokemonCard
+          key={id}
+          id={id}
+          name={name}
+          image={image}
+          price={price}
+          handleAddItemToCart={handleAddItemToCart}
+        />
       ))}
     </div>
   );
+};
+PokemonsCards.propTypes = {
+  pokemons: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      image: PropTypes.string,
+      price: PropTypes.number,
+    })
+  ),
+  handleAddItemToCart: PropTypes.func.isRequired,
 };
 export default PokemonsCards;

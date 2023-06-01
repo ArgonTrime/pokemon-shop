@@ -1,7 +1,7 @@
 .wrapper {
     display: flex;
     justify-content: center;
-    padding: 20px;
+    padding: 50px 0;
 }
 .detailsCard {
     display: flex;
@@ -20,6 +20,7 @@
 
     padding: 20px;
     border-radius: 10px;
+    background-color: #FFF;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: all 0.6s cubic-bezier(.25,.8,.25,1);
     &:hover {
@@ -40,11 +41,11 @@
 .detailsPrice {
     margin-top: 30px;
     padding-top: 20px;
-    border-top: 1px solid #f2f2f2    ;
-   display: flex;
-   justify-content: space-between;
-   gap: 10px;
-   & span {
-    font-weight: bold;
-   }
+    border-top: 1px solid #f2f2f2;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    & span {
+        font-weight: bold;
+    }
 }

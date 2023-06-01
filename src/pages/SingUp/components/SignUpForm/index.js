@@ -6,9 +6,10 @@ import styles from "./style.module.scss";
 import { Alert } from "@mui/material";
 import { isNull } from "lodash";
 import { Link } from "react-router-dom";
+import { inputTypeByName } from "pages/SingUp/utils/inputTypeByName";
 
-const SignUpForm = ({ formik, data, errorsResponce }) => {
-  const { errors, values, handleChange, handleSubmit } = formik;
+const SignUpForm = ({ formik, data, errorsResponce, handleRemoveError }) => {
+  const { touched, errors, values, handleChange, handleSubmit } = formik;
 
   return (
     <form className={styles.wrapper} onSubmit={handleSubmit}>
@@ -22,9 +23,11 @@ const SignUpForm = ({ formik, data, errorsResponce }) => {
               onChange={handleChange}
               label={name}
               key={name}
-              error={Boolean(errors[name])}
-              helperText={errors[name]}
-              type={name === "password" || name === "email" ? name : "text"}
+              error={
+                errors[name] && touched[name] ? Boolean(errors[name]) : null
+              }
+              helperText={errors[name] && touched[name] ? errors[name] : null}
+              type={inputTypeByName(name)}
               size="small"
             />
           ))}
@@ -32,7 +35,9 @@ const SignUpForm = ({ formik, data, errorsResponce }) => {
             Submit
           </Button>
           {errorsResponce?.message && (
-            <Alert severity="error">{errorsResponce.message}</Alert>
+            <Alert severity="error" onClose={handleRemoveError}>
+              {errorsResponce.message}
+            </Alert>
           )}
         </>
       ) : (

@@ -1,14 +1,22 @@
 .wrapper {
     display: flex;
+    min-height: 780px;
     flex-direction: column;
-    gap: 20px;
-    padding: 20px;
     align-items: center;
+    background-color: #f0ebeb;
 
-    & div {
+    & .wrapperContant {
         max-width: 1200px;
+        min-height: 800px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        justify-content: space-between;
+        & ul > li > button {
+            background-color: #FFF;
+            font-family: 'Roboto Slab', serif;
+            font-weight: 700;
+        }
     }
-}
-.breadcrambs {
-    font-size: 14px;
 }

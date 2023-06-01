@@ -5,7 +5,8 @@ import { pokemonApiConfig } from "api/config/pokemonApiConfig";
 //requests
 // const getPokemons = (pageNumber, countPokemons) =>
 //   pokemonApiConfig.get(`/products?page=${pageNumber}&limit=${countPokemons}`);
-const getPokemons = () => pokemonApiConfig.get("/products");
+const getPokemons = (body) =>
+  pokemonApiConfig.get("/products", { params: body });
 
 const getPokemonById = (pokemonId) =>
   pokemonApiConfig.get(`/products/${pokemonId}`);
@@ -25,9 +26,9 @@ export const getPokemonByIdThunk = createAsyncThunk(
 
 export const getPokemonsThunk = createAsyncThunk(
   "pokemonsPage/getPokemons",
-  async (_, { rejectWithValue }) => {
+  async (payload, { rejectWithValue }) => {
     try {
-      const response = await getPokemons();
+      const response = await getPokemons(payload);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);

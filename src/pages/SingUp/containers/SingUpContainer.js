@@ -1,6 +1,7 @@
 import { useFormik } from "formik";
 import { Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { omit } from "lodash";
 
 import { useFetching } from "hooks";
 import { SingUpValidationForm } from "../validation";
@@ -10,21 +11,26 @@ import { isAuthenticatedSelector } from "pages/SignIn/selectors";
 import { ROUTE_NAMES } from "routes/routeNames";
 
 const SignUpContainer = () => {
-  const { data, errors, handleDataLoad } = useFetching(signUp);
+  const { data, errors, setErrors, handleDataLoad } = useFetching(signUp);
   const isAuthenticated = useSelector(isAuthenticatedSelector);
+
+  const handleRemoveError = () => {
+    setErrors(null);
+  };
 
   const formik = useFormik({
     initialValues: {
       firstName: "",
       lastName: "",
       email: "",
-      gender: "",
       password: "",
+      confirmPassword: "",
+      gender: "",
       phone: "",
     },
     validationSchema: SingUpValidationForm,
     onSubmit: (values, { resetForm }) => {
-      handleDataLoad(values);
+      handleDataLoad(omit(values, ["confirmPassword"]));
       resetForm();
     },
   });
@@ -33,6 +39,13 @@ const SignUpContainer = () => {
     return <Navigate to={ROUTE_NAMES.HOME} />;
   }
 
-  return <SignUpView formik={formik} data={data} errors={errors} />;
+  return (
+    <SignUpView
+      formik={formik}
+      data={data}
+      errors={errors}
+      handleRemoveError={handleRemoveError}
+    />
+  );
 };
 export default SignUpContainer;

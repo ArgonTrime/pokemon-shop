@@ -13,6 +13,9 @@ export const SingUpValidationForm = Yup.object({
   password: Yup.string()
     .min(8, "Minimum 8 characters (letters or numbers)")
     .required("Required"),
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref("password"), null], "Passwords must match")
+    .required(),
   gender: Yup.string()
     .matches(/male|female|Male|Female/, "Male or Female")
     .required("Required"),

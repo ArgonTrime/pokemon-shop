@@ -1,4 +1,5 @@
 import { capitalize } from "lodash";
+import PropTypes from "prop-types";
 
 import styles from "./style.module.scss";
 
@@ -16,5 +17,8 @@ const PokemonAbilities = ({ abilities }) => {
       </div>
     </>
   );
+};
+PokemonAbilities.propTypes = {
+  abilities: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
 };
 export default PokemonAbilities;

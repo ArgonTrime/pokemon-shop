@@ -23,7 +23,7 @@ const useFetching = (requestFunction) => {
     [requestFunction]
   );
 
-  return { data, errors, isLoading, handleDataLoad };
+  return { data, errors, isLoading, handleDataLoad, setErrors };
 };
 
 export default useFetching;

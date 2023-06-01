@@ -1,0 +1,48 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0ebeb;
+    padding: 20px 0;
+
+
+    & .wrapperContant {
+        max-width: 1200px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        & p > a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            transition: all 0.5s ease;
+            &:hover {
+                color: #f04037;
+            }
+        }
+
+    }
+}
+.headerContant {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: left;
+    & span {
+        font-weight: bold;
+    }
+    & .orderInfo {
+        display: flex;
+        justify-content: space-between;
+        button {
+            font-family: 'Roboto Slab', serif;
+        }
+    }
+}
+.footerContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}

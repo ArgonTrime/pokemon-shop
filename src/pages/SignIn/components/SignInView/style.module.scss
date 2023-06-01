@@ -1,12 +1,13 @@
 .wrapper {
     display: flex;
-    margin-top: 80px;
+    padding-top: 80px;
     margin-bottom: 80px;
     justify-content: center;
 }
 .form {
     max-width: 500px;
     text-align: center;
+    background-color: #FFF;
 
     padding: 20px;
     border-radius: 10px;

@@ -1,0 +1,23 @@
+.orderTitle {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 0 10px;
+    span {
+        font-weight: 700;
+    }
+}
+.orderInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 10px;
+    p:first-of-type {
+        font-weight: 700;
+    }
+    span {
+        font-weight: 700;
+    }
+}
